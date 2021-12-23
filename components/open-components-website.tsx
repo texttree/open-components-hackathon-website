@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import cn from 'classnames';
+import styleUtils from './utils.module.css';
+import styles from './contact.module.css';
 
-.contact {
-  text-align: center;
-  color: var(--secondary-color);
-}
-
-.contact-email {
-  color: #fff;
-}
-
-.contact-email:hover {
-  text-decoration: underline;
-  color: #fff;
+export default function OpenComponentsWebsite() {
+  return (
+    <div className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.contact)}>
+      {/* eslint-disable-next-line */}
+      <a className={styles.logo} href="https://opencomponents.io/" rel="noopener noreferrer">
+        Visit the Open Components Website
+      </a>
+    </div>
+  );
 }

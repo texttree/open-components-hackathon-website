@@ -17,16 +17,13 @@ import Link from 'next/link';
 import cn from 'classnames';
 import styleUtils from './utils.module.css';
 import styles from './contact.module.css';
-import { REPO } from '@lib/constants';
 
 export default function LearnMore() {
   return (
     <div className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.contact)}>
       <Link href="/learn-more">
         {/* eslint-disable-next-line */}
-        <a className={styles.logo}>
-          Learn more
-        </a>
+        <a className={styles.logo}>Learn more</a>
       </Link>
     </div>
   );
