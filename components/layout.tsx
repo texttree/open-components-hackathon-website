@@ -23,22 +23,28 @@ import styles from './layout.module.css';
 import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
-import ViewSource from '@components/view-source';
+import React from 'react';
+import ViewSource from './view-source';
 
 type Props = {
   children: React.ReactNode;
   className?: string;
   hideNav?: boolean;
   layoutStyles?: any;
+  isLive?: boolean;
 };
 
-export default function Layout({ children, className, hideNav, layoutStyles }: Props) {
+export default function Layout({
+  children,
+  className,
+  hideNav,
+  layoutStyles,
+  isLive = false
+}: Props) {
   const router = useRouter();
   const activeRoute = router.asPath;
-
   return (
     <>
-      <ViewSource />
       <div className={styles.background}>
         {!hideNav && (
           <header className={cn(styles.header)}>
@@ -53,20 +59,22 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
             </div>
             <div className={styles.tabs}>
               {NAVIGATION.map(({ name, route }) => (
-                <Link key={name} href={route}>
-                  <a
-                    className={cn(styles.tab, {
-                      [styles['tab-active']]: activeRoute.startsWith(route)
-                    })}
-                  >
-                    {name}
-                  </a>
-                </Link>
+                <a
+                  key={name}
+                  href={route}
+                  className={cn(styles.tab, {
+                    [styles['tab-active']]: activeRoute.startsWith(route)
+                  })}
+                >
+                  {name}
+                </a>
               ))}
             </div>
-            <div className={cn(styles['header-right'])}/>
+
+              <div style={{margin: 'var(--space-2x) var(--space-16x)'}} />
           </header>
         )}
+        <ViewSource />
         <div className={styles.page}>
           <main className={styles.main} style={layoutStyles}>
             <SkipNavContent />
