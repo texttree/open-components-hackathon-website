@@ -24,9 +24,6 @@ import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
 import React from 'react';
-import DemoButton from './hms/demo-cta';
-import RoomCta from './hms/demo-cta/room-cta';
-import { hmsConfig } from './hms/config';
 import ViewSource from './view-source';
 
 type Props = {
@@ -46,7 +43,6 @@ export default function Layout({
 }: Props) {
   const router = useRouter();
   const activeRoute = router.asPath;
-  const disableCta = ['/schedule', '/speakers', '/expo', '/jobs'];
   return (
     <>
       <div className={styles.background}>
@@ -75,14 +71,7 @@ export default function Layout({
               ))}
             </div>
 
-            {(hmsConfig.hmsIntegration && isLive && !disableCta.includes(activeRoute)) ||
-            activeRoute === '/' ? (
-              <div className={cn(styles['header-right'])}>
-                {activeRoute === '/' ? <DemoButton /> : <RoomCta />}
-              </div>
-            ) : (
-              <div />
-            )}
+              <div style={{margin: 'var(--space-2x) var(--space-16x)'}} />
           </header>
         )}
         <ViewSource />

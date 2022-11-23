@@ -23,9 +23,9 @@ export const SITE_NAME = 'Open Components Hackathon';
 export const META_DESCRIPTION = 'Join our Open Components Hackathon Event.';
 export const SITE_DESCRIPTION =
   'An interactive online experience by the community, free for everyone.';
-export const DATE = 'February 28th - March 4th, 2022';
-export const SHORT_DATE = 'February 28 - 9:00am EST';
-export const FULL_DATE = 'February 28th 9am Eastern Daylight Time (EDT), UTC -4';
+export const DATE = 'February 20th - 24th, 2023';
+export const SHORT_DATE = 'February 20 - 9:00am EST';
+export const FULL_DATE = 'February 20th 9am Eastern Daylight Time (EDT), UTC -4';
 export const TWEET_TEXT = META_DESCRIPTION;
 export const COOKIE = 'user-id';
 
