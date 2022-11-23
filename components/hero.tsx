@@ -33,7 +33,7 @@ export default function Hero() {
         {SITE_DESCRIPTION}
       </h2>
       <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.hero)}>
-        Open Components<br/> Hackathon 2022
+        Open Components<br/> Hackathon 2023
       </h1>
       <h2
         className={cn(

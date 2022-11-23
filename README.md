@@ -1,233 +1,172 @@
-<div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/unfoldingWord/open-components-hackathon-website">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">Open Components Hackathon Website</h3>
-
-  <p align="center">
-    Website for Open Components Hackathon Events by unfoldingWord Developers.
-    <br />
-    <a href="https://github.com/unfoldingWord/open-components-hackathon-website"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://hackathon.opencomponents.io">View Demo</a>
-    ·
-    <a href="https://github.com/unfoldingWord/open-components-hackathon-website/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/unfoldingWord/open-components-hackathon-website/issues">Request Feature</a>
-  </p>
-</div>
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fvirtual-event-starter-kit&project-name=virtual-event-starter-kit&repository-name=virtual-event-starter-kit&demo-title=Virtual%20Event%20Starter%20Kit&demo-description=Jumpstart%20your%20virtual%20event%20and%20scale%20to%20any%20size%20with%20Next.js%20and%20Vercel.&demo-url=https%3A%2F%2Fdemo.vercel.events%2F&demo-image=https%3A%2F%2Fdemo.vercel.events%2Fdeploy.png&integration-ids=oac_7yeSwUoVR5no3SlA9WM6oR7l)
 
-<!-- ABOUT THE PROJECT -->
+# Virtual Events Starter Kit
 
-## About The Project
+This virtual event starter kit was used to run [Next.js Conf 2020](https://nextjs.org/2020/conf), which had almost 40,000 live attendees. It includes the following features:
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+- Multiple stages - with the ability to add multiple sessions on each stage
+- Each stage can be configured as -
+  - An embedded YouTube stream OR
+  - A live interactive audio-video experience powered by [100ms](https://www.100ms.live)
+- Sponsor expo, including individual virtual booths
+- Career Fair, allowing attendees to network and find job opportunities
+- Ticket registration and generation
+- Speaker pages and bios
+- Schedule
 
-**Purpose**
+This platform is built upon three principles:
 
-- The purpose of this project
+- **Delegation:** Running a conference is difficult – you have to **delegate** tasks to third-parties to ensure success. Certain elements of an online conference experience are tough to get right, and we'd rather lean on established, industry leading solutions.
+- **Flexibility:** While delegating certain elements of the conference experience is helpful, it's also important to own the platform. That's why this template provides a **flexible** open-source codebase that can be modified for your event.
+- **Reducing Risk:** It's inevitable something will go wrong during your event. This platform **reduces risk** by leaning on a dynamic site that outputs as static files using [Incremental Static Generation](https://nextjs.org/docs/basic-features/data-fetching). These static files are cached, ensuring your site is never down. Then, it uses [API Routes](https://nextjs.org/docs/api-routes/introduction) to sprinkle dynamic content on top, which are hosted by a provider with 99.99% uptime.
 
-**Problem**
+---
 
-- The problem statement
+## Built With
 
-**Scope**
+- Framework: [Next.js](https://nextjs.org/)
+  - [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support)
+  - [TypeScript](https://nextjs.org/docs/basic-features/typescript)
+- CMS: [Multiple Options](https://github.com/vercel/virtual-event-starter-kit#cms)
+- Video (Pre-recorded): [YouTube](https://www.youtube.com/)
+- Live interactive video: [100ms](http://www.100ms.live)
+- Deployment: [Vercel](https://vercel.com/)
+- Authentication: [GitHub OAuth](https://docs.github.com/en/free-pro-team@latest/developers/apps/authorizing-oauth-apps)
+- Database: [Multiple Options](https://github.com/vercel/virtual-event-starter-kit#database)
 
-- What's in scope and out of scope for this project?
+## What’s New?
 
-**Background**
+The virtual events starter kit now has added support for organising truly LIVE virtual events. You can quickly setup a live stage and invite speakers to interact with viewers. Live audio-video opens up a ton of possibilities with respect to what you can do with this template. You can use it for:
 
-- What led us to this point? How did we get here?
+1. Live Webinars
+2. Community Calls
+3. Hackathons
+4. Panel Discussions
+5. Multi-stage live conferences with a backstage (coming soon)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## **Clone and Deploy**
 
-### Built With
+Click the button below to clone and deploy this template on [Vercel](https://vercel.com/).
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [React.js](https://reactjs.org/)
-- [Next.js](https://nextjs.org/)
-- [DatoCMS](https://www.datocms.com/)
-- [Supabase](https://www.supabase.com/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/100mslive/virtual-event-starter-kit&project-name=virtual-event-starter-kit&repository-name=virtual-event-starter-kit&demo-url=https://demo.vercel.events&demo-image=https://demo.vercel.events/deploy.png&integration-ids=oac_7yeSwUoVR5no3SlA9WM6oR7l&demo-title=Virtual%20Event%20Starter%20Kit&demo-description=Jumpstart%20your%20virtual%20event%20and%20scale%20to%20any%20size%20with%20Next.js,%20100ms%20and%20DatoCMS)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+You’ll be asked to install the **100ms with DatoCMS** integration. It lets you sign up or log in to 100ms and DatoCMS, and connects your DatoCMS and 100ms account to vercel. In a single integration, you will be able to deploy a fully working template that contains all the elements of the virtual events starter kit.
 
-<!-- GETTING STARTED -->
+## Running Locally
 
-## Getting Started
+> **NOTE:** Before this setup make sure to deploy the project using 100ms + DatoCMS integration to speed up the setup process.
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+After the project is deployed on Vercel, you can find `DATOCMS_READ_ONLY_API_TOKEN` and `NEXT_PUBLIC_HMS_TOKEN_ENDPOINT` already setup in the environment-variables section in project settings. The integration also sets up the [rooms](https://docs.100ms.live/server-side/v2/features/room), [templates & roles](https://docs.100ms.live/server-side/v2/foundation/templates-and-roles) associated with it.
 
-### Prerequisites
+First, to set local environment variables you can either use Vercel CLI [vercel env pull](https://vercel.com/docs/cli#commands/env) or just manually copy paste them.
 
-**Data**
-what is the source of the data and data formats are covered by this project?
+```bash
 
-This is an example of how to list things you need to use the software and how to install them.
+cp .env.local.example .env.local
+```
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Then install the package and run the development server:
 
-### Installation/First Steps
+```bash
+yarn install
+yarn dev
+```
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/unfoldingWord/open-components-hackathon-website.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+Open [http://localhost:3000](http://localhost:3000/) to see the landing page.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+### Stages
 
-<!-- USAGE EXAMPLES -->
+There are four different stages included in the seed data. Feel free to add or remove these based on your schedule. Each stage can be easily configured to be a Live Video/Audio experience or an embedded YouTube stream. (You can do all of these configurations via DatoCMS console)
 
-## Usage/Integration
+### Joining a stage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Visit `/stage/a` after entering your email you should see a "Enter your name" input form.
 
-_For more details, please refer to the [virtual-event-starter-kit Documentation](docs/virtual-event-starter-kit-README.md)_
+> NOTE: by default, you will join as a Viewer
 
-[Styleguidist link](https://example.netlify.app)
+![join](/media/join.png)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Click on Join and you should see "No Speakers Present". This is because only you have joined the Stage aka the "Room" as a viewer. A viewer does not have the permission to publish their audio and video. You can read more about roles in the sections below.
 
-<!-- ROADMAP -->
+![stage.png](/media/stage.png)
 
-## Roadmap
+### Joining with different Roles
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-  - [] Nested Feature
+For this we pass a query param in url for eg: `/stage/a?role=<ROLE_NAME>`
 
-See the [open issues](https://github.com/unfoldingWord/open-components-hackathon-website/issues) for a full list of proposed features (and known issues).
+- Moderator: `/stage/a?role=backstage`
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+- Speaker: `/stage/a?role=stage`
 
-<!-- CONTRIBUTING -->
+- Viewer: `/stage/a`
 
-## Contributing
+So if you visit `/stage/a?role=stage` now you should see a Preview screen opening up. After joining you should be able to see yourselves. Open a new tab or invite others to host your next meetup, community calls, etc.
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. [Guidelines for external contributions.](https://forum.door43.org)
+![preview](/media/preview.png)
 
-You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+### Customize
 
-If you would like to fork the repo and create a pull request.
+#### Live Video
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+To learn more on how to customise the live video aspect of this template, refer to [this document](/hms.md).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+### **CMS**
 
-<!-- LICENSE -->
+Environment variables determine which CMS to use. See [lib/cms-api.ts](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/cms-api.ts) for details and `.env.local.example` for all environment variables. The demo ([demo.vercel.events](https://demo.vercel.events/)) uses DatoCMS, but we also have support for:
 
-## License
+- [Agility](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fvirtual-event-starter-kit&project-name=virtual-event-starter-kit&repository-name=virtual-event-starter-kit&demo-title=Virtual%20Event%20Starter%20Kit&demo-description=Jumpstart%20your%20virtual%20event%20and%20scale%20to%20any%20size%20with%20Next.js%20and%20Vercel.&demo-url=https%3A%2F%2Fdemo.vercel.events%2F&demo-image=https%3A%2F%2Fdemo.vercel.events%2Fdeploy.png&integration-ids=oac_Dnqk9CoC6rZ18k9nVR9KresV&external-id=%7B%22manifest%22%3A%20%22https%3A%2F%2Fraw.githubusercontent.com%2Fvercel%2Fvirtual-event-starter-kit%2Fmain%2Fdatocms.json%22%2C%20%22githubRepo%22%3A%20%22vercel%2Fvirtual-event-starter-kit%22%7D)
+- [Contentful](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/cms-providers/contentful.ts)
+- [Prismic](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/cms-providers/prismic/index.ts) ([Instructions](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/cms-providers/prismic/README.md))
+- [Sanity](https://create.sanity.io/?template=sanity-io%2Fsanity-template-nextjs-event-starter)
+- [Storyblok](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/cms-providers/storyblok.ts)
+  - Click the following link to create the space for this starter kit in Storyblok: [Create Event Space](https://app.storyblok.com/#!/build/101757)
 
-Distributed under the GPL2.0 License. See `LICENSE.txt` for more information.
+### **Constants**
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+`lib/constants.ts` contains a list of variables you should customize.
 
-<!-- CONTACT -->
+Note - In case you're looking to add live audio-video to the events template, we'd recommend you to move ahead with DatoCMS for a seamless integration experience. We've created a dato + 100ms integration that will help you to integrate both 100ms and DatoCMS to your vercel account in a few clicks.
 
-## Contact
+---
 
-Manny Colon - [@\_mannycolon](https://twitter.com/_mannycolon) - colonmanuel7@gmail.com
+## **Authentication and Database**
 
-Project Link: [https://github.com/unfoldingWord/open-components-hackathon-website](https://github.com/unfoldingWord/open-components-hackathon-website)
+Some features won’t work until you set up authentication and database. The demo ([demo.vercel.events](https://demo.vercel.events/)) uses [GitHub OAuth](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app) for authentication and [Redis](https://redis.io/) for database. You can use different providers as you see fit.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+### **Authentication**
 
-<!-- ACKNOWLEDGMENTS -->
+You need to have GitHub OAuth set up to be able to customize the ticket after signing up on the registration form.
 
-## Acknowledgments
+First, create a [GitHub OAuth application](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app) to use for authentication.
 
-- [Vercel virtual-event-starter-kit](https://github.com/vercel/virtual-event-starter-kit)
-- []()
-- []()
+- Set **Authorization Callback URL** as `<your domain>/api/github-oauth`
+- After creating the OAuth app, create a **client secret**.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+### **Running Locally:**
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+- Set the Authorization Callback URL as `http://localhost:3000/api/github-oauth` on GitHub.
+- On `.env.local`, set `NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID` as the **Client ID** of the OAuth app.
+- Set `GITHUB_OAUTH_CLIENT_SECRET` as the **Client secret** of the OAuth app.
+- Finally, make sure the `NEXT_PUBLIC_SITE_ORIGIN` environment variable is set as `http://localhost:3000`. This is required to get the OAuth popup to work locally.
+- Restart the app (`yarn dev`) after editing `.env.local`.
 
-[contributors-shield]: https://img.shields.io/github/contributors/unfoldingWord/open-components-hackathon-website.svg?style=for-the-badge
-[contributors-url]: https://github.com/unfoldingWord/open-components-hackathon-website/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/unfoldingWord/open-components-hackathon-website.svg?style=for-the-badge
-[forks-url]: https://github.com/unfoldingWord/open-components-hackathon-website/network/members
-[stars-shield]: https://img.shields.io/github/stars/unfoldingWord/open-components-hackathon-website.svg?style=for-the-badge
-[stars-url]: https://github.com/unfoldingWord/open-components-hackathon-website/stargazers
-[issues-shield]: https://img.shields.io/github/issues/unfoldingWord/open-components-hackathon-website.svg?style=for-the-badge
-[issues-url]: https://github.com/unfoldingWord/open-components-hackathon-website/issues
-[license-shield]: https://img.shields.io/github/license/unfoldingWord/open-components-hackathon-website.svg?style=for-the-badge
-[license-url]: https://github.com/unfoldingWord/open-components-hackathon-website/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/company/unfoldingword
-[product-screenshot]: images/screenshot.png
+Once it’s set up, sign up using the registration form on the home page (not on a stage page) and then click "Generate with GitHub".
+
+### **On Vercel:**
+
+- Set the Authorization Callback URL as `<your deployment’s URL>/api/github-oauth` on GitHub.
+- Set `NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID` and `GITHUB_OAUTH_CLIENT_SECRET` on [Vercel Project Environment Variables Settings](https://vercel.com/docs/environment-variables) for the production environment.
+- Edit `SITE_URL` in `lib/constants.ts` to match your deployment’s URL (no trailing slash).
+- Push the code to redeploy the Project on Vercel.
+
+### **Database**
+
+You need a database to save user data and enable the following features:
+
+- Generating a unique ticket number for each email when signing up on the registration form. If no DB is set up, it’ll always be `1234`.
+- Generating a unique ticket image or ticket URL after signing in with GitHub. If no DB is set up, each ticket image or URL will show generic data.
+
+Environment variables determine which database to use. See [lib/db-api.ts](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/db-api.ts) for details and `.env.local.example` for all environment variables. There's support for:
+
+- [Redis](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/db-providers/README.md#redis)
+- [Supabase](https://github.com/vercel/virtual-event-starter-kit/blob/main/lib/db-providers/README.md#supabase)
