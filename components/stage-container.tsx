@@ -32,8 +32,16 @@ type Props = {
 };
 
 export default function StageContainer({ stage, allStages }: Props) {
-  const response = useSWR('/api/stages', {
-    initialData: allStages,
+  const response = useSWR('/api/stages',
+    async url => {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error();
+      }
+      return res.json();
+    },
+    {
+    fallbackData: allStages,
     refreshInterval: 5000
   });
   const updatedStages = response.data || [];
