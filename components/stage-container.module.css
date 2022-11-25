@@ -67,7 +67,7 @@
 
 .button {
   border-radius: var(--space-2x);
-  border: none;
+  border: 1px solid #3362df;
   color: #fff;
   background: #3362df;
   cursor: pointer;
@@ -90,7 +90,7 @@
 .button:hover,
 .button:focus {
   background: black;
-  color: #fff;
+  color: #3362df;
 }
 
 .button > svg {

@@ -9,6 +9,7 @@
     "dev": "next",
     "start": "next start",
     "build": "next build",
+    "generate": "node -e 'require(\"react-google-forms-hooks\").googleFormsToJson(\"https://docs.google.com/forms/d/e/1FAIpQLSdma-rdJELwPGL-Iw7x28h3nZbvCaiFAABpz9B_17kuemSbWg/viewform\").then((data) =>  console.log(JSON.stringify(data)))' > GoogleForm.json",
     "license": "addlicense -l apache -c 'Vercel Inc.' components/**/* lib/**/* pages/**/* styles/**/* *.ts *.js"
   },
   "dependencies": {
