@@ -23,6 +23,7 @@ type FormState = 'default' | 'loading' | 'error';
 
 import {
   useShortAnswerInput,
+  useLongAnswerInput,
   useDropdownInput,
   useRadioInput,
   useGoogleForm,
@@ -30,6 +31,7 @@ import {
 } from 'react-google-forms-hooks';
 
 import form from 'GoogleForm.json';
+import Select from './select';
 
 const ShortAnswerInput = ({ id }: { id: string }) => {
   const { register, label, required, description } = useShortAnswerInput(id);
@@ -40,8 +42,26 @@ const ShortAnswerInput = ({ id }: { id: string }) => {
         <div>{label}</div>
         <div>{description}</div>
         <input
-          className={cn(styles['input-label'], styles.input)}
+          className="p-4 w-80 text-md bg-gray-600 rounded-lg placeholder:text-gray-400 focus:outline-none focus:bg-gray-700"
           type={label.toLocaleLowerCase() === 'email' ? 'email' : 'text'}
+          {...register()}
+          required={required}
+        />
+      </label>
+    </>
+  );
+};
+
+const LongAnswerInput = ({ id }: { id: string }) => {
+  const { register, label, required, description } = useLongAnswerInput(id);
+
+  return (
+    <>
+      <label>
+        <div>{label}</div>
+        <div>{description}</div>
+        <textarea
+          className="p-4 border-0 w-80 text-md bg-gray-600 rounded-lg placeholder:text-gray-400 focus:outline-none focus:bg-gray-700"
           {...register()}
           required={required}
         />
@@ -68,7 +88,7 @@ const RadioInput = ({ id }: { id: string }) => {
           <input type="radio" id={customOption.id} {...customOption.registerOption()} />
           <label htmlFor={customOption.id}>Your option</label>
           <input
-            className={cn(styles['input-label'], styles.input)}
+            className="p-4 block border-0 w-80 text-md bg-gray-600 rounded-lg placeholder:text-gray-400 focus:outline-none focus:bg-gray-700"
             type="text"
             {...customOption.registerCustomInput()}
           />
@@ -86,7 +106,10 @@ const DropdownInput = ({ id }: { id: string }) => {
     <>
       <label>{label}</label>
       <div>{description}</div>
-      <select {...register()} required={required}>
+      <Select
+        {...register()}
+        required={required}
+      >
         {options.map(o => {
           return (
             <option key={o.label} value={o.label}>
@@ -94,7 +117,7 @@ const DropdownInput = ({ id }: { id: string }) => {
             </option>
           );
         })}
-      </select>
+      </Select>
     </>
   );
 };
@@ -146,6 +169,9 @@ const Questions = () => {
             break;
           case 'SHORT_ANSWER':
             questionInput = <ShortAnswerInput id={id} />;
+            break;
+          case 'LONG_ANSWER':
+            questionInput = <LongAnswerInput id={id} />;
             break;
           case 'DROPDOWN':
             questionInput = <DropdownInput id={id} />;
