@@ -28,7 +28,7 @@ import ticketFormStyles from './ticket-form.module.css';
 import { saveGithubToken } from '@lib/user-api';
 import { GitHubOAuthData } from '@lib/types';
 import { supabase } from '@lib/supabase';
-import { InviteStageIcon } from '@100mslive/react-icons';
+import DiscordButton from './discord-button';
 
 type FormState = 'default' | 'loading' | 'error';
 
@@ -101,8 +101,8 @@ export default function Form({ defaultUsername = '', setTicketGenerationState, n
         const windowWidth = 600;
         const windowHeight = 700;
         // https://stackoverflow.com/a/32261263/114157
-        const windowTop = window?.top?.outerHeight ?? 0 / 2 + window?.top?.screenY ?? 0 - 700 / 2;
-        const windowLeft = window?.top?.outerWidth ?? 0 / 2 + window?.top?.screenX ?? 0 - 600 / 2;
+        const windowTop = (window?.top?.outerHeight ?? 0) / 2 + (window?.top?.screenY ?? 0) - 700 / 2;
+        const windowLeft = (window?.top?.outerWidth ?? 0) / 2 + (window?.top?.screenX ?? 0) - 600 / 2;
 
         const openedWindow = window.open(
           `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
@@ -234,22 +234,9 @@ export default function Form({ defaultUsername = '', setTicketGenerationState, n
             )}
           </p>
         </div>
-        <div className={formStyles['or-divider']}>OR</div>
-        <a
-          href="/stage/a"
-          className={cn(
-            formStyles.submit,
-            formStyles['generate-with-github'],
-            formStyles['stage-btn']
-          )}
-        >
-          <div className={ticketFormStyles.generateWithGithub}>
-            <span className={ticketFormStyles.githubIcon}>
-              <InviteStageIcon />
-            </span>
-            Go to Live Stage
-          </div>
-        </a>
+        <div className={ticketFormStyles.description}>
+          <DiscordButton />
+        </div>
       </div>
     </form>
   );

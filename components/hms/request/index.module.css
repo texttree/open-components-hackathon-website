@@ -47,7 +47,7 @@
 }
 .accept-btn {
   border-radius: 8px;
-  background: #702ec2;
+  background: var(--brand);
   margin-left: 1rem;
 }
 .reject-btn {

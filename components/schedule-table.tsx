@@ -38,7 +38,7 @@ export default function ScheduleTable({ allSteps }: Props) {
           </tr>
         </thead>
         <tbody>
-          {steps.map((step, i) => {
+          {steps?.map((step, i) => {
             return (
               <tr key={`${step.name}${i}`}>
                 {Object.keys(step).map((key: string, i) => {

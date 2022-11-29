@@ -71,7 +71,7 @@ const RoleChangeDialog = () => {
       {request && request.role.name === 'invitee' ? (
         <Dialog.Root open={request ? true : false}>
           <Dialog.Overlay className={s['pop-overlay']} />
-          <Dialog.Content className="dialog-content dialog-animation bg-[#212121]   rounded-xl">
+          <Dialog.Content className="dialog-content dialog-animation bg-[#212121] rounded-xl">
             {showPreview ? (
               <GuestPreview roleChange={roleChange} />
             ) : (
@@ -108,7 +108,7 @@ const RoleChangeDialog = () => {
           }}
         >
           <Dialog.Overlay className={s['pop-overlay']} />
-          <Dialog.Content className="dialog-content dialog-animation md:w-[300px] w-[95%] bg-[#111]   rounded-xl">
+          <Dialog.Content className="dialog-content dialog-animation md:w-[300px] w-[95%] bg-[#111] rounded-xl">
             <h3>{requestSenderName.current} has invited you to speak</h3>
             <p>
               You cannot join the stage on mobile. Please join the session via a desktop/laptop and

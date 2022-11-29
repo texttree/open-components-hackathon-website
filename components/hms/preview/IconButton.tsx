@@ -1,4 +1,4 @@
-const IconButton: React.FC<{ active?: boolean; onClick?: () => void }> = ({
+const IconButton: React.FC<{ active?: boolean; onClick?: () => void, children?: React.ReactNode }> = ({
   active = false,
   onClick,
   children

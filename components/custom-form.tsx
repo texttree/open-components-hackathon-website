@@ -61,7 +61,7 @@ const LongAnswerInput = ({ id }: { id: string }) => {
         <div>{label}</div>
         <div>{description}</div>
         <textarea
-          className="p-4 border-0 w-80 text-md bg-gray-600 rounded-lg placeholder:text-gray-400 focus:outline-none focus:bg-gray-700"
+          className="p-4 text-white border-0 w-80 text-md bg-gray-600 rounded-lg placeholder:text-gray-400 focus:outline-none focus:bg-gray-700"
           {...register()}
           required={required}
         />
