@@ -55,17 +55,17 @@ export const useDevices = (): useDevicesResult => {
     [DeviceType.videoInput]: sdkSelectedDevices.videoInputDeviceId
   };
 
-  if (!isAllowedToPublish.video && allDevices.videoInput === []) {
+  if (!isAllowedToPublish.video && allDevices.videoInput?.length === 0) {
     delete allDevices[DeviceType.videoInput];
     delete selectedDeviceIDs[DeviceType.videoInput];
   }
-  if (!isAllowedToPublish.audio && allDevices.audioInput === []) {
+  if (!isAllowedToPublish.audio && allDevices.audioInput?.length === 0) {
     delete allDevices[DeviceType.audioInput];
     delete selectedDeviceIDs[DeviceType.audioInput];
   }
 
   const updateDevice = useCallback(
-    async ({ deviceType, deviceId }) => {
+    async ({ deviceType, deviceId }: { deviceType: DeviceType; deviceId: string }) => {
       try {
         switch (deviceType) {
           case DeviceType.audioInput:
