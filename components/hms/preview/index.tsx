@@ -67,7 +67,7 @@ export const PreviewScreen: React.FC<{ token: string }> = ({ token }) => {
             is {videoEnabled ? 'on' : 'off'}
           </p>
           <div className="flex space-x-4">
-            <Button variant="secondary" onClick={() => router.push('/')}>
+            <Button variant="secondary" onClick={() => {router.push('/')}}>
               Go back
             </Button>
             <Button disabled={!enableJoin} type="submit">

@@ -39,7 +39,7 @@ const Dropdown: React.FC<{ id: string; role: string }> = ({ id, role }) => {
               <DropdownMenu.Item asChild>
                 <button
                   className={`w-full flex items-center px-2 py-3 focus:bg-gray-600 focus:outline-none text-sm rounded-lg`}
-                  onClick={changeRole}
+                  onClick={() => {changeRole()}}
                 >
                   <InviteStageIcon className="mr-2" />
                   {role === 'viewer' ? 'Bring user to stage' : 'Remove user from stage'}
@@ -49,7 +49,7 @@ const Dropdown: React.FC<{ id: string; role: string }> = ({ id, role }) => {
                 <DropdownMenu.Item asChild>
                   <button
                     className="w-full flex items-center px-2 py-3 focus:bg-gray-600 focus:outline-none text-sm rounded-lg"
-                    onClick={removePeer}
+                    onClick={() => {removePeer()}}
                   >
                     <RemoveUserIcon className="mr-2" /> Remove user
                   </button>

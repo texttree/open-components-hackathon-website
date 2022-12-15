@@ -138,11 +138,12 @@ const DropdownInput = ({ id }: { id: string }) => {
   );
 };
 
-const getEmailId = () => {
+const getEmailId = () : string => {
   return form.fields.filter(res => res.label.toLocaleLowerCase() === 'email')[0].id
 }
 
 const Contactform = () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const methods = useGoogleForm({ form });
 
@@ -154,10 +155,12 @@ const Contactform = () => {
   const onSubmit = async (data: any) => {
     setErrorMsg('');
     setFormState('loading');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     await methods.submitToGoogleForms(data);
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     confirm(data[getEmailId()])
-      .then(async res => {
+      .then(res => {
         if (!res.ok) {
           throw new Error();
         }
@@ -165,17 +168,17 @@ const Contactform = () => {
         setPageState('ticket');
         setFormState('default');
       })
-      .catch(async err => {
-        let message = 'Error! Please try again.';
+      .catch(err => {
         setFormState('error');
-        setErrorMsg(err?.message ?? message);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        setErrorMsg(err?.message ?? 'Error! Please try again.');
       });
   };
 
   return (
     <div className={cn(styles.wrapForm)}>
       <GoogleFormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <form onSubmit={() => {methods.handleSubmit(onSubmit)}}>
           <Questions />
           <button
             type="submit"

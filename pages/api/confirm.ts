@@ -49,12 +49,12 @@ export default async function sendConfirmEmail(
     });
   }
 
-  let id = emailToId(email);
+  const id = emailToId(email);
   const existingTicketNumberString = await getTicketNumberByUserId(id);
 
   if (existingTicketNumberString) {
     try {
-      await formConfirm(id, req.body.name);
+      await formConfirm(id, String(req.body.name));
     } catch (error) {
       return res.status(404).json({
         error: {
@@ -65,10 +65,10 @@ export default async function sendConfirmEmail(
     }
     const user = await getUserById(id);
     const name = user.name;
-    const info = await transporter.sendMail({
-      from: '"Support" <' + process.env.SMTP_LOGIN + '>',
+    await transporter.sendMail({
+      from: `"Support" <${process.env.SMTP_LOGIN}>`,
       to: 'foxprogs@gmail.com',
-      subject: name + '! You are registered for the hackathon',
+      subject: `${name}! You are registered for the hackathon`,
       text: `Hello ${name}!
 You have successfully registered for the hackathon.
 From February 13 to 17, the first part, Lernathon, will take place.

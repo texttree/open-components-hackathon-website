@@ -73,7 +73,7 @@ const RoleChangeDialog = () => {
           <Dialog.Overlay className={s['pop-overlay']} />
           <Dialog.Content className="dialog-content dialog-animation bg-[#212121] rounded-xl">
             {showPreview ? (
-              <GuestPreview roleChange={roleChange} />
+              <GuestPreview roleChange={(e) => {roleChange(e)}} />
             ) : (
               <>
                 <p className={s['head']}>You have been invited to speak</p>

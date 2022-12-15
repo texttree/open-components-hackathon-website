@@ -48,7 +48,7 @@ const Footer = () => {
         </ControlButton>
       ) : null}
       {isAllowedToPublish.screen ? (
-        <ControlButton text="Screen share" active={isLocalScreenShare} onClick={startScreenshare}>
+        <ControlButton text="Screen share" active={isLocalScreenShare} onClick={() => {startScreenshare()}}>
           <ShareScreenIcon />
         </ControlButton>
       ) : null}

@@ -34,11 +34,13 @@ const SettingDialog: React.FC<{ children?: React.ReactNode }> = ({ children }) =
           <div className={wrapperClass}>
             <span className={textClass}>Video</span>
             <Select
-              onChange={e =>
-                updateDevice({
-                  deviceId: e.target.value,
-                  deviceType: DeviceType.videoInput
-                })
+              onChange={(e) =>
+                {
+                  updateDevice({
+                    deviceId: e.target.value,
+                    deviceType: DeviceType.videoInput
+                  })
+                }
               }
               value={selectedDeviceIDs.videoInput}
             >
@@ -55,10 +57,12 @@ const SettingDialog: React.FC<{ children?: React.ReactNode }> = ({ children }) =
             <span className={textClass}>Microphone</span>
             <Select
               onChange={e =>
-                updateDevice({
-                  deviceId: e.target.value,
-                  deviceType: DeviceType.audioInput
-                })
+                {
+                  updateDevice({
+                    deviceId: e.target.value,
+                    deviceType: DeviceType.audioInput
+                  });
+                }
               }
               value={selectedDeviceIDs.audioInput}
             >
@@ -75,10 +79,12 @@ const SettingDialog: React.FC<{ children?: React.ReactNode }> = ({ children }) =
             <span className={textClass}>Speaker</span>
             <Select
               onChange={e =>
-                updateDevice({
-                  deviceId: e.target.value,
-                  deviceType: DeviceType.audioOutput
-                })
+                {
+                  updateDevice({
+                    deviceId: e.target.value,
+                    deviceType: DeviceType.audioOutput
+                  });
+                }
               }
               value={selectedDeviceIDs.audioOutput}
             >
@@ -118,7 +124,7 @@ export const TestAudio: React.FC<{ id: string }> = ({ id }) => {
   }, [audioRef.current, id]);
   return (
     <>
-      <Button onClick={() => audioRef.current?.play()} disabled={playing} variant="secondary">
+      <Button onClick={() => {audioRef.current?.play()}} disabled={playing} variant="secondary">
         <AudioLevelIcon className="mr-2" /> Play Audio Level Test
       </Button>
       <audio

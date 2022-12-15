@@ -54,7 +54,7 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
 
       if (!res.ok) {
         const json = await res.json();
-        setErrorMsg(getErrorMsg(json.error.code));
+        setErrorMsg(getErrorMsg(String(json.error.code)));
         setFormState('error');
         return;
       }
@@ -102,7 +102,7 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
     <div className={cn(styles.container, styleUtils.appear, styleUtils['appear-first'])}>
       <h1 className={cn(styles.hero)}>Ready to experience a live stage?</h1>
       <h2 className={cn(styles.description)}>Submit your details below to enter</h2>
-      <form onSubmit={onSubmit} className={styles.form}>
+      <form onSubmit={(e) => {onSubmit(e)}} className={styles.form}>
         <div className={styles['form-row']}>
           <label
             htmlFor="email-input-field"

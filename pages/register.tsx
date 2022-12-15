@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import { useRouter } from 'next/router';
-
 import Page from '@components/page';
 import { META_DESCRIPTION } from '@lib/constants';
 import { Contactform } from '@components/custom-form';
@@ -23,7 +21,6 @@ import Layout from '@components/layout';
 import Header from '@components/header';
 
 export default function Register() {
-  const { query } = useRouter();
   const meta = {
     title: 'Open Components Hackathon',
     description: META_DESCRIPTION

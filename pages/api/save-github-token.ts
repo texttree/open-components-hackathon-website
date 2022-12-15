@@ -38,12 +38,12 @@ export default async function saveGithubToken(req: NextApiRequest, res: NextApiR
     });
   }
 
-  const ticketNumber = await getTicketNumberByUserId(body.id);
+  const ticketNumber = await getTicketNumberByUserId(String(body.id));
   if (!ticketNumber) {
     return res.status(404).json({ code: 'invalid_id', message: 'The registration does not exist' });
   }
 
-  const { username, name } = await updateUserWithGitHubUser(body.id, body.token, ticketNumber);
+  const { username, name } = await updateUserWithGitHubUser(String(body.id), String(body.token), String(ticketNumber));
 
   res.json({ username, name });
 }
