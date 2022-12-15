@@ -34,28 +34,32 @@ export async function getUserByUsername(username: string): Promise<ConfUser> {
 }
 
 export async function getUserById(id: string): Promise<ConfUser> {
-  const [name, username, createdAt] = await redis!.hmget(
+  const [name, form, username, createdAt] = await redis!.hmget(
     `id:${id}`,
     'name',
+    'form',
     'username',
     'createdAt'
   );
-  return { name, username, createdAt: parseInt(createdAt!, 10) };
+  return { name, username, form: !!form, createdAt: parseInt(createdAt!, 10) };
 }
 
 export async function createUser(id: string, email: string): Promise<ConfUser> {
   const ticketNumber = await redis!.incr('count');
   const createdAt = Date.now();
+  const form = 0;
   await redis!.hmset(
     `id:${id}`,
     'email',
     email,
+    'form',
+    form,
     'ticketNumber',
     ticketNumber,
     'createdAt',
     createdAt
   );
-  return { id, email, ticketNumber, createdAt };
+  return { id, email, ticketNumber, form: !!form, createdAt };
 }
 
 export async function getTicketNumberByUserId(id: string): Promise<string | null> {
@@ -72,6 +76,21 @@ export async function createGitHubUser(user: any): Promise<string> {
     .expire(key, 60 * 10) // 10m TTL
     .exec();
   return token;
+}
+
+export async function formConfirm(
+  id: string,
+  name: string
+): Promise<ConfUser> {
+  const key = `id:${id}`;
+
+  await redis!
+    .multi()
+    .hsetnx(key, 'form', 1)
+    .hsetnx(key, 'name', name || '')
+    .exec();
+
+  return { id };
 }
 
 export async function updateUserWithGitHubUser(

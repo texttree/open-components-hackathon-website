@@ -60,6 +60,7 @@ export default function Form({ sharePage }: Props) {
             id: data.id,
             ticketNumber: data.ticketNumber,
             name: data.name,
+            form: data.form,
             username: data.username
           };
 
@@ -75,7 +76,7 @@ export default function Form({ sharePage }: Props) {
             await router.replace(`/?${queryString}`, '/');
           } else {
             setUserData(params);
-            setPageState('ticket');
+            setPageState(params.form ? 'ticket' : 'form');
           }
         })
         .catch(async err => {

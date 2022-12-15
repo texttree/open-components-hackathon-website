@@ -36,7 +36,7 @@ export async function getUserByUsername(username: string): Promise<ConfUser> {
 export async function getUserById(id: string): Promise<ConfUser> {
   const { data, error } = await supabase!
     .from<ConfUser>('users')
-    .select('name, username, createdAt')
+    .select('name, username, createdAt, form')
     .eq('id', id)
     .single();
   if (error) throw new Error(error.message);
@@ -66,6 +66,17 @@ export async function createGitHubUser(user: any): Promise<string> {
   if (error) throw new Error(error.message);
 
   return data.id;
+}
+
+export async function formConfirm(id: string, name: string): Promise<ConfUser> {
+  const { error } = await supabase!
+    .from<ConfUser>('users')
+    .update({ form: true, name })
+    .eq('id', id)
+    .single();
+  if (error) console.log(error.message);
+
+  return { id };
 }
 
 export async function updateUserWithGitHubUser(id: string, token: string): Promise<ConfUser> {

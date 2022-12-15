@@ -16,12 +16,13 @@
 
 import { createContext, useContext } from 'react';
 
-export type PageState = 'registration' | 'ticket';
+export type PageState = 'registration' | 'ticket' | 'form';
 
 export type UserData = {
   id?: string;
   ticketNumber?: number;
   username?: string;
+  form?: boolean,
   name?: string;
 };
 

@@ -26,6 +26,7 @@ let dbApi: {
   getTicketNumberByUserId: (id: string) => Promise<string | null>;
   createGitHubUser: (user: any) => Promise<string>;
   updateUserWithGitHubUser: (id: string, token: string, ticketNumber: string) => Promise<ConfUser>;
+  formConfirm: (id: string, name: string) => Promise<ConfUser>;
 };
 
 if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_SECRET) {
@@ -43,7 +44,8 @@ if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_S
     getUserById: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER }),
     getTicketNumberByUserId: () => Promise.resolve(null),
     createGitHubUser: () => Promise.resolve(''),
-    updateUserWithGitHubUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER })
+    updateUserWithGitHubUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER }),
+    formConfirm: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER })
   };
 }
 
@@ -65,6 +67,13 @@ export async function getTicketNumberByUserId(id: string): Promise<string | null
 
 export async function createGitHubUser(user: any): Promise<string> {
   return dbApi.createGitHubUser(user);
+}
+
+export async function formConfirm(
+  id: string,
+  name: string
+): Promise<ConfUser> {
+  return dbApi.formConfirm(id, name);
 }
 
 export async function updateUserWithGitHubUser(

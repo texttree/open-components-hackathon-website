@@ -16,6 +16,7 @@
 
 import { useState } from 'react';
 import { PageState, ConfDataContext, UserData } from '@lib/hooks/use-conf-data';
+import Header from './header';
 import Ticket from './ticket';
 import Layout from './layout';
 import ConfContainer from './conf-container';
@@ -23,6 +24,8 @@ import Hero from './hero';
 import Form from './form';
 import LearnMore from './learn-more';
 import OpenComponentsWebsite from './open-components-website';
+import { Contactform } from './custom-form';
+import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
   defaultUserData: UserData;
@@ -54,6 +57,12 @@ export default function Conf({
               <Form />
               <LearnMore />
               <OpenComponentsWebsite />
+            </>
+          ) : pageState === 'form' ? (
+            <>
+              {' '}
+              <Header hero="Register" description={META_DESCRIPTION} />
+              <Contactform />
             </>
           ) : (
             <Ticket

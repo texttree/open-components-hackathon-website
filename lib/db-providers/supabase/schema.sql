@@ -4,6 +4,7 @@ create table users (
   "ticketNumber" bigserial,
   name text,
   username text unique,
+  form boolean default false,
   "createdAt" timestamp with time zone default timezone('utc'::text, now()) not null
 );
 alter table users enable row level security;

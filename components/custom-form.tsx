@@ -18,8 +18,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import LoadingDots from './loading-dots';
 import styles from './custom-form.module.css';
-
-type FormState = 'default' | 'loading' | 'error';
+import selectStyles from './select.module.css';
 
 import {
   useShortAnswerInput,
@@ -30,8 +29,11 @@ import {
   GoogleFormProvider
 } from 'react-google-forms-hooks';
 
+import { confirm } from '@lib/user-api';
 import form from 'GoogleForm.json';
-import Select from './select';
+import useConfData from '@lib/hooks/use-conf-data';
+
+type FormState = 'default' | 'loading' | 'error';
 
 const ShortAnswerInput = ({ id }: { id: string }) => {
   const { register, label, required, description } = useShortAnswerInput(id);
@@ -103,41 +105,75 @@ const DropdownInput = ({ id }: { id: string }) => {
   const { register, options, required, label, description } = useDropdownInput(id);
 
   return (
-    <>
+    <div className="w-80">
       <label>{label}</label>
       <div>{description}</div>
-      <Select
-        {...register()}
-        required={required}
-      >
-        {options.map(o => {
-          return (
-            <option key={o.label} value={o.label}>
-              {o.label}
-            </option>
-          );
-        })}
-      </Select>
-    </>
+      <div className={selectStyles.container}>
+        <select className={cn(selectStyles.select)} {...register()} required={required}>
+          {options.map(o => {
+            return (
+              <option key={o.label} value={o.label}>
+                {o.label}
+              </option>
+            );
+          })}
+        </select>
+        <div className={selectStyles.arrow}>
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+            shapeRendering="geometricPrecision"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+      </div>
+    </div>
   );
 };
+
+const getEmailId = () => {
+  return form.fields.filter(res => res.label.toLocaleLowerCase() === 'email')[0].id
+}
 
 const Contactform = () => {
   // @ts-ignore
   const methods = useGoogleForm({ form });
 
+  const { setPageState, setUserData, userData } = useConfData();
+
   const [formState, setFormState] = useState<FormState>('default');
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   const onSubmit = async (data: any) => {
-    setFormState('loading')
-    console.log('>>> Here is the data', data);
+    setErrorMsg('');
+    setFormState('loading');
     await methods.submitToGoogleForms(data);
-    setFormState('default')
-    alert('Form submitted with success!');
+
+    confirm(data[getEmailId()])
+      .then(async res => {
+        if (!res.ok) {
+          throw new Error();
+        }
+        setUserData({ ...userData, form: true });
+        setPageState('ticket');
+        setFormState('default');
+      })
+      .catch(async err => {
+        let message = 'Error! Please try again.';
+        setFormState('error');
+        setErrorMsg(err?.message ?? message);
+      });
   };
 
   return (
-    <>
+    <div className={cn(styles.wrapForm)}>
       <GoogleFormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <Questions />
@@ -148,9 +184,10 @@ const Contactform = () => {
           >
             {formState === 'loading' ? <LoadingDots size={4} /> : <>Submit</>}
           </button>
+          {formState === 'error' ? <p style={{color: 'red'}}>{errorMsg}</p> : '' }
         </form>
       </GoogleFormProvider>
-    </>
+    </div>
   );
 };
 
@@ -182,7 +219,11 @@ const Questions = () => {
           return null;
         }
 
-        return <div key={id} className='my-6'>{questionInput}</div>;
+        return (
+          <div key={id} className="my-6">
+            {questionInput}
+          </div>
+        );
       })}
     </div>
   );

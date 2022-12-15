@@ -70,6 +70,7 @@ export default async function register(
   }
 
   let id = nanoid();
+  let form: boolean | undefined = false;
   let ticketNumber: number;
   let createdAt: number = Date.now();
   let statusCode = 200;
@@ -83,13 +84,14 @@ export default async function register(
     const user = await getUserById(id);
     name = user.name;
     username = user.username;
+    form = user.form;
     ticketNumber = parseInt(existingTicketNumberString, 10);
-    createdAt = user.createdAt;
+    createdAt = Number(user.createdAt);
     statusCode = 200;
   } else {
     const newUser = await createUser(id, email);
-    ticketNumber = newUser.ticketNumber;
-    createdAt = newUser.createdAt;
+    ticketNumber = Number(newUser.ticketNumber);
+    createdAt = Number(newUser.createdAt);
     statusCode = 201;
   }
 
@@ -111,6 +113,7 @@ export default async function register(
     ticketNumber,
     createdAt,
     name,
+    form,
     username
   });
 }

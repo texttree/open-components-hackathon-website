@@ -18,9 +18,3 @@
   margin: auto 0;
   padding: 0 var(--space-4x);
 }
-
-@media (min-width: 768px) {
-  .container {
-    margin: auto;
-  }
-}
